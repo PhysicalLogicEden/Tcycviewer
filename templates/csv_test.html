@@ -1,0 +1,16 @@
+<html><head><title>CSV TEST</title></head>
+    <body><h1>CSV TEST</h1>
+      {% if data %}
+          <div>Columns of the uploaded file: <strong>{{ data.columns }}</strong></div>
+          <div>Selected column: <strong>{{ data.col_selected }}</strong></div>
+          <div>Mean of the selected = <strong>{{ data.mean }}</strong></div>
+      {% endif %}
+      <fieldset>
+         <form enctype="multipart/form-data" action="" method="post">
+            <h2>Provide some CSV with first column in numbers and/or column name</h2>
+            <div>File{% if data.columns %} (UPLOADED){% endif %}: <input id="file" type="file" name="file"/></div>
+            <div>Column: <input id="col_selected" type="text" name="col_selected" value="{{ data.col_selected }}"/></div>
+            <div><input id="submit" type="submit" value="SUBMIT"/></div>
+         </form>
+      </fieldset>
+</body></html>
