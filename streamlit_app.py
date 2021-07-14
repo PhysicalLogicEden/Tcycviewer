@@ -61,7 +61,7 @@ def TcyclesAnalyzer2(filename,dataTcycuploaded):
     
     # loc_sep = [m.start() for m in re.finditer('/', filename)]
     # directoy_path = filename[:loc_sep[-1]]
-    Analyzed_folder_path =os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop','Analyzed_Tcyc')
+    Analyzed_folder_path = 'W:\\Operation\\Production\\Production_tools_environment\\PTE\\uploads'
     if not os.path.exists(Analyzed_folder_path):
         os.mkdir(Analyzed_folder_path)
     directoy_path = os.path.join (Analyzed_folder_path,deviceName)
