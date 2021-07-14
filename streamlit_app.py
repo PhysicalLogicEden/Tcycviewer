@@ -20,8 +20,8 @@ st.title("Physical-Logic Temp cycle Analyzer")
 
 st.write('please choose Tcyc.txt file')
 
-def save_uploadedfile(uploadedfile):
-    with open(os.path.join("uploads",uploadedfile.name),"wb") as f:
+def save_uploadedfile(uploadedfile,deviceName):
+    with open(os.path.join("uploads",deviceName,uploadedfile.name),"wb") as f:
         f.write(uploadedfile.getbuffer())
     return st.success("Saved File:{} to uploads".format(uploadedfile.name))
  
