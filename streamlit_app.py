@@ -35,5 +35,5 @@ if uploaded_file is not None:
       DevicePath = os.path.join(Analyzed_folder_path, deviceName)
       if not os.path.isdir(DevicePath):
               os.mkdir(DevicePath) 
-              save_uploadedfile(uploaded_file)
+              save_uploadedfile(uploaded_file,deviceName)
       # plot_folder =  TcyclesAnalyzer(uploaded_file.name,uploaded_file)
