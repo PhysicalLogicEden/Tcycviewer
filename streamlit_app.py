@@ -65,16 +65,17 @@ def TcyclesAnalyzer2(filename,dataTcycuploaded):
     if not os.path.exists(Analyzed_folder_path):
         os.mkdir(Analyzed_folder_path)
     directoy_path = os.path.join (Analyzed_folder_path,deviceName)
+    os.copyfile()
     if not os.path.exists(directoy_path):
         os.mkdir(directoy_path)    
     if cycle1:
-        Folder_path = [directoy_path+'/Tcycle1_'+deviceName+'_py']  #'_py' for comparison purpose only
+        Folder_path =  os.path.join(directoy_path,'Tcycle1_'+deviceName+'_py')  #'_py' for comparison purpose only
     else:
-        Folder_path = [directoy_path+'/Tcycle2_'+deviceName+'_py']  #'_py' for comparison purpose only
-    if os.path.exists(Folder_path[0]): # delete existing folder
-        shutil.rmtree(Folder_path[0])
+        Folder_path = os.path.join(directoy_path,'Tcycle2_'+deviceName+'_py')  #'_py' for comparison purpose only
+    if os.path.exists(Folder_path): # delete existing folder
+        shutil.rmtree(Folder_path)
     
-    os.mkdir(Folder_path[0])
+    os.mkdir(Folder_path)
     os.chdir(directoy_path)
 
     
@@ -332,7 +333,7 @@ def TcyclesAnalyzer2(filename,dataTcycuploaded):
     
     t = time.time()
     
-    plot_folder = Folder_path[0]
+    plot_folder = Folder_path
     timeline_all = np.arange(len(dataTcyc[:,0]))/f_sample/60/60 #Hours
     timeline_filt = np.arange(len(alldatag))/f_sample/60/60 #Hours
     plt.rcParams['axes.formatter.useoffset'] = False
@@ -575,7 +576,9 @@ def TcyclesAnalyzer2(filename,dataTcycuploaded):
     return plot_folder
     
 
-uploaded_file = st.file_uploader("Upload File",type=['txt'])
-uploaded_data = uploaded_file.read() 
+uploaded_file = st.file_uploader("Upload File",type=['txt']) 
 if uploaded_file is not None:
-   plot_folder =  TcyclesAnalyzer2(uploaded_file.name,uploaded_file)
+   file_details = {"Filename":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
+   if uploaded_file.type == "text/plain":
+       uploaded_data = str(uploaded_file.read(),"utf-8")
+       plot_folder =  TcyclesAnalyzer2(uploaded_file.name,uploaded_file)
