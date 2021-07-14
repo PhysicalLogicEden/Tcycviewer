@@ -47,10 +47,7 @@ def TcyclesAnalyzer2(filename,dataTcycuploaded):
     temps = dict(High1=75,High2=75,Low=-54) #[C]
     external_Tsensor = dict(sensitivity=0.008,offset = 66)# [V/C] ; [C]
     external_poly = dict(SFp=[0,0,0,0,0,13],Bp = [0,0,0,0,0,0],MAp = [0,0,0,0,0,0])
-
-
-    ### init
-    
+    ### init  
     decimation_factor = 30
     f_sample = 5 #Hz
     poly_rank = 5 # polynomial rank
@@ -64,7 +61,7 @@ def TcyclesAnalyzer2(filename,dataTcycuploaded):
     
     # loc_sep = [m.start() for m in re.finditer('/', filename)]
     # directoy_path = filename[:loc_sep[-1]]
-    Analyzed_folder_path =os.path.join (os.path.expanduser ("~"), "desktop","Analyzed_Tcyc")
+    Analyzed_folder_path =os.path.join (os.path.expanduser("~"), "desktop","Analyzed_Tcyc")
     if not os.path.exists(Analyzed_folder_path):
         os.mkdir(Analyzed_folder_path)
     directoy_path = os.path.join (Analyzed_folder_path,deviceName)
