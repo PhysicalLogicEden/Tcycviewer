@@ -576,5 +576,6 @@ def TcyclesAnalyzer2(filename,dataTcycuploaded):
     
 
 uploaded_file = st.file_uploader("Upload File",type=['txt'])
+uploaded_data = uploaded_file.read() 
 if uploaded_file is not None:
    plot_folder =  TcyclesAnalyzer2(uploaded_file.name,uploaded_file)
