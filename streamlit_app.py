@@ -8,7 +8,7 @@ Created on Wed Jul 14 09:07:57 2021
 
 import streamlit as st
 # import os
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
 from matplotlib.widgets import Cursor
 import numpy as np
 from sklearn.cluster import KMeans
