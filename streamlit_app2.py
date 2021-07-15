@@ -410,7 +410,7 @@ if uploaded_file is not None:
              # All Temp. Cycle data filtered w/o 4p - compensated residual
         host = host_subplot(111)
         par = host.twinx()
-        p1, = host.plot(timeline_filt,1000*(datacompds-statistics.mean(datacompds)),'royalblue',linewidth=0.5,label='Acceleration')
+        p1, = host.plot(timeline_filt,1000*(datacompds-stat.mean(datacompds)),'royalblue',linewidth=0.5,label='Acceleration')
         p2, = par.plot(timeline_filt,alltempec_s,'coral',linewidth=0.5,label='Temperature')
         host.set_xlabel('Time [Hours]')
         host.set_ylabel('Acceleration Residual Error [$\mu$g]')
