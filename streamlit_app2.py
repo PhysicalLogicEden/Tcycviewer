@@ -141,6 +141,7 @@ if uploaded_file is not None:
             gradIndexes.append(list(range(int(Indexes[i][0]),int(Indexes[i][1])))+list(range(int(Indexes[i][2]),int(Indexes[i][3])))+list(range(int(Indexes[i][4]),int(Indexes[i][5])))+list(range(int(Indexes[i][6]),int(Indexes[i][7])))) 
             allfpa.append(allfpares)
         allfpa=np.array(allfpa) # [mbit/g]; [g]; [mrad]; [V]
+        st.write(allfpa)
         st.write('Total of four points in Tcycle:',numOf4p)
         #########Tsensor
         tv = allfpa[:,-1]
