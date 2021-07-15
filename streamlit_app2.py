@@ -76,13 +76,10 @@ if uploaded_file is not None:
         dataTcyc = dataTcyc.iloc[:,:2].values
         #b = np.asarray(dataTcyc, dtype=np.float64, order='C')
         #st.write(type(b))
-        x=np.asfarray(dataTcyc,float)
-        st.write(type(dataTcyc))
-        st.write(type(x))
         #dataTcyc = dataTcyc.astype(np.float)
         #st.write(type(dataTcyc))
         if 1: # trim beginning of Tcycle (clear junk data at turn ON)
-            tempeVdiff = np.gradient(dataTcyc[:1000,1])
+            tempeVdiff = np.gradient(dataTcyc[:1000,1].astype(np.float))
             tempeVtrim=np.where(abs(tempeVdiff)>0.004)
             if (tempeVtrim[0].size > 0):
                 dataTcyc = dataTcyc[tempeVtrim[0][-1]+1:,:] # clear junk data
