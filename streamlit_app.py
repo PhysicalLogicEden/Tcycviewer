@@ -28,7 +28,7 @@ def save_uploadedfile(uploadedfile,deviceName):
     
 uploaded_file = st.file_uploader("Upload File",type=['txt']) 
 if uploaded_file is not None:
-   if uploaded_file.type == "txt":
+   if uploaded_file.type == 'txt':
       file_details = {"Filename":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
       df = pd.read_csv(uploaded_file,delimiter='\t')
       st.write(df[1:6,:])
