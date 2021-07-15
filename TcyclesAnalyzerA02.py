@@ -58,8 +58,8 @@ def TcyclesAnalyzer2(filename,dataTcycuploaded):
     
     # loc_sep = [m.start() for m in re.finditer('/', filename)]
     # directoy_path = filename[:loc_sep[-1]]
-    Analyzed_folder_path =os.path.join (os.path.expanduser ("~"), "desktop","Analyzed_Tcyc")
-    if not os.path.exists(Analyzed_folder_path):
+    if not os.path.exists(os.path.join (os.path.expanduser ("~"), "Desktop","Analyzed_Tcyc")):
+        Analyzed_folder_path =os.path.join (os.path.expanduser ("~"), "Desktop","Analyzed_Tcyc")
         os.mkdir(Analyzed_folder_path)
     directoy_path = os.path.join (Analyzed_folder_path,deviceName)
     if not os.path.exists(directoy_path):
