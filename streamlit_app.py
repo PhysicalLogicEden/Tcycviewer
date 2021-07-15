@@ -32,8 +32,8 @@ if uploaded_file is not None:
     st.write(file_details)
 	# Check File Type
     if uploaded_file.type == "text/plain":
-        df = pd.read_csv(uploaded_file,delimiter='\t')
-        st.write(df[1:6,:])
+        # df = pd.read_csv(uploaded_file,delimiter='\t')
+        # st.write(df[1:6,:])
         devNameInd = uploaded_file.name.find('L1')
         deviceName  = uploaded_file.name[devNameInd:devNameInd+14]
         DevicePath = os.path.join(Analyzed_folder_path, deviceName)
