@@ -74,7 +74,7 @@ if uploaded_file is not None:
             label = 'cyc2_'
         #########preprocess data
         dataTcyc = dataTcyc.iloc[:,:2].values
-        st.write(type(dataTcyc[0,1].astype(np.float)))
+        st.write(type(float(dataTcyc[0,1])))
         #b = np.asarray(dataTcyc, dtype=np.float64, order='C')
         #st.write(type(b))
         #dataTcyc = dataTcyc.astype(np.float)
