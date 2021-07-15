@@ -52,7 +52,6 @@ if uploaded_file is not None:
     # Check File Type
     if uploaded_file.type == "text/plain":
         df = str(uploaded_file.read(),"utf-8")
-        st.write(type(df)) 
         dataTcyc =pd.DataFrame([x.split(' ') for x in df.split('\n')])
         #st.write(type(dataTcyc)) 
         filename = uploaded_file.name
@@ -75,10 +74,9 @@ if uploaded_file is not None:
             label = 'cyc2_'
         #########preprocess data
         dataTcyc = dataTcyc.iloc[:,:2].values
-        st.write(type(dataTcyc)) 
-        st.write(dataTcyc[:2,1]) ##
+        st.write(dataTcyc[:2])
         if 1: # trim beginning of Tcycle (clear junk data at turn ON)
-            tempeVdiff = np.gradient(dataTcyc[:1000,1])
+            tempeVdiff = np.gradient(dataTcyc[:1000])
             tempeVtrim=np.where(abs(tempeVdiff)>0.004)
             if (tempeVtrim[0].size > 0):
                 dataTcyc = dataTcyc[tempeVtrim[0][-1]+1:,:] # clear junk data
