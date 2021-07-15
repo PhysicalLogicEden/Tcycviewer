@@ -107,8 +107,8 @@ if uploaded_file is not None:
                 midNeg4p= math.ceil(np.median(Neg4p[np.where(Neg4p_y_kmeans==i)]))#middle of Neg4p
                 startEnd4p.append([midNeg4p-int(meanArea*2.5)-2*delta,midNeg4p+int(1.5*meanArea)+4*delta])
         else:
-            grad =np.around(np.gradient(dataTcyc[:,0]), 6)
-            st.write(grad[15])
+            grad =np.around(np.gradient(dataTcyc[:,0]), 8)
+            st.write(grad)
             #clustering grad into 2 clusters to find indForCalc 
             kmeans = KMeans(init = 'k-means++',n_clusters = 2)
             indForCalc_y_kmeans = kmeans.fit_predict(abs(grad).reshape(-1,1)) 
