@@ -37,7 +37,7 @@ if uploaded_file is not None:
         devNameInd = uploaded_file.name.find('L1')
         deviceName  = uploaded_file.name[devNameInd:devNameInd+14]
         DevicePath = os.path.join(Analyzed_folder_path, deviceName)
-        st.write(DevicePath)
+        st.write(DevicePath,deviceName)
                       # if not os.path.isdir(DevicePath):
                       #         os.mkdir(DevicePath) 
                       #         save_uploadedfile(uploaded_file,deviceName)
