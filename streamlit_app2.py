@@ -84,9 +84,7 @@ if uploaded_file is not None:
         if('cont' in filename):
             cont = True
         delta = 10
-        st.write(dataTcyc[:,0])
-        st.write(np.nanmin(dataTcyc,axis=0))
-        Neg4p = np.where(dataTcyc[:,0]<0.8*np.minimum(dataTcyc[:,0]))[0]#finds indexes of the -1g areas for all 4p
+        Neg4p = np.where(dataTcyc[:,0]<0.8*np.nanmin(dataTcyc[:,0]))[0]#finds indexes of the -1g areas for all 4p
             #filtering outliers:
         clf = LocalOutlierFactor(n_neighbors=10)
         Neg4pOutLiers= clf.fit_predict(Neg4p.reshape(-1, 1))
