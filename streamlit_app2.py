@@ -54,7 +54,7 @@ if uploaded_file is not None:
     if uploaded_file.type == "text/plain":
         df = str(uploaded_file.read(),"utf-8")
         dataTcyc =pd.DataFrame([x.split('\t') for x in df.split('\n')], dtype='float64')
-        st.write(type(dataTcyc))
+        st.write(type(dataTcyc[0][0]))
         filename = uploaded_file.name
         devNameInd = filename.find('L1')
         deviceName  = filename[devNameInd:devNameInd+14]
