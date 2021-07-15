@@ -30,12 +30,12 @@ uploaded_file = st.file_uploader("Upload File",type=['txt'])
 if uploaded_file is not None:
     file_details = {"Filename":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
     st.write(file_details)
+    df2 = pd.read_csv(uploaded_file)
+    st.write(df2[0:1,:])
 	# Check File Type
     if uploaded_file.type == "text/plain":
         #df = str(uploaded_file.read(),"utf-8")
         # st.write(df)
-        df2 = pd.read_csv(uploaded_file)
-        st.write(df2[0:1,:])
         devNameInd = uploaded_file.name.find('L1')
         deviceName  = uploaded_file.name[devNameInd:devNameInd+14]
         DevicePath = os.path.join(Analyzed_folder_path, deviceName)
