@@ -109,7 +109,6 @@ if uploaded_file is not None:
         else:
             grad =np.around(np.gradient(dataTcyc[:,0]), 8)
             grad=grad[~np.isnan(grad)]
-            st.write(np.where(np.isnan(grad)))
             #clustering grad into 2 clusters to find indForCalc 
             kmeans = KMeans(init = 'k-means++',n_clusters = 2)
             indForCalc_y_kmeans = kmeans.fit_predict(abs(grad).reshape(-1,1))
@@ -166,6 +165,7 @@ if uploaded_file is not None:
         alltempe = dataTcycFiltered[:,1] # [V]
         alltempec = alltempe/Tsensor["sensitivity"]-Tsensor["offset"] # [C]
         ########Poly calculations
+        st.write(allfpa)
         SFp = np.polyfit(tv,allfpa[:,0],poly_rank) # SF poly
         Bp=np.polyfit(tv,allfpa[:,1],poly_rank) # Bias poly
         MAp=np.polyfit(tv,allfpa[:,2],poly_rank) # MA poly
