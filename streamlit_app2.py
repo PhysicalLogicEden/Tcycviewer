@@ -8,7 +8,7 @@ Created on Wed Jul 14 09:07:57 2021
 
 import streamlit as st
 import pandas as pd
-from pd import DataFrame
+from pandas import DataFrame
 # import PL own function from path
 # from TcyclesAnalyzerA02 import TcyclesAnalyzer2
 import os
