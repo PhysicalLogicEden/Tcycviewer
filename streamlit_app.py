@@ -8,7 +8,7 @@ Created on Wed Jul 14 09:07:57 2021
 
 import streamlit as st
 import pandas as pd
-   
+from csv import reader   
 # import PL own function from path
 # from TcyclesAnalyzerA01 import TcyclesAnalyzer
 import os
@@ -33,7 +33,7 @@ if uploaded_file is not None:
     # Check File Type
     if uploaded_file.type == "text/plain":
         df = str(uploaded_file.read(),"utf-8")
-        data = pd.read_csv(df, sep=" ")
+        data =pd.DataFrame(list(reader(df)))
         st.write(data[0,0])
         devNameInd = uploaded_file.name.find('L1')
         deviceName  = uploaded_file.name[devNameInd:devNameInd+14]
