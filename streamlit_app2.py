@@ -249,6 +249,7 @@ if uploaded_file is not None:
         timeline_filt = np.arange(len(alldatag))/f_sample/60/60 #Hours
         plt.rcParams['axes.formatter.useoffset'] = False
             # All Temp. Cycle raw data (acc and temp)
+ 
         host = host_subplot(111)
         par = host.twinx()
         p1, = host.plot(timeline_all,dataTcyc[:,0]/abs(allfpa[0,0])*1000000,'royalblue',linewidth=0.5,label='Acceleration')
@@ -263,7 +264,7 @@ if uploaded_file is not None:
         w=host.figure.get_figwidth()
         h=host.figure.get_figheight()
         host.figure.set_size_inches(1.5*w,h*1.5)
-        st.pyplot()
+        st.pyplot(host.figure)
         # All Temp. Cycle data filtered w/o 4p
         host = host_subplot(111)
         par = host.twinx()
