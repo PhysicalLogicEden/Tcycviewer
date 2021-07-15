@@ -52,7 +52,7 @@ if uploaded_file is not None:
     # Check File Type
     if uploaded_file.type == "text/plain":
         df = str(uploaded_file.read(),"utf-8")
-        dataTcyc =pd.DataFrame([x.split('\t') for x in df.split('\n')]).astypte(np.float)
+        dataTcyc =pd.DataFrame([x.split('\t') for x in df.split('\n')]).astypte('float64')
         filename = uploaded_file.name
         devNameInd = filename.find('L1')
         deviceName  = filename[devNameInd:devNameInd+14]
