@@ -52,8 +52,7 @@ if uploaded_file is not None:
     # Check File Type
     if uploaded_file.type == "text/plain":
         df = str(uploaded_file.read(),"utf-8")
-        dataTcyc =pd.DataFrame([x.split('\t') for x in df.split('\n')],dtype=float)
-        st.write(dataTcyc[0])
+        dataTcyc =pd.DataFrame([x.split('\t') for x in df.split('\n')]).astypte(np.float)
         filename = uploaded_file.name
         devNameInd = filename.find('L1')
         deviceName  = filename[devNameInd:devNameInd+14]
@@ -84,7 +83,6 @@ if uploaded_file is not None:
         if('cont' in filename):
             cont = True
         delta = 10
-        #st.write(np.min(dataTcyc[:,0]))
         Neg4p = np.where(dataTcyc[:,0]<0.8*np.min(dataTcyc[:,0]))[0]#finds indexes of the -1g areas for all 4p
             #filtering outliers:
         clf = LocalOutlierFactor(n_neighbors=10)
