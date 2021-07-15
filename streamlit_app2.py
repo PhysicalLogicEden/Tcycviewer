@@ -144,6 +144,7 @@ if uploaded_file is not None:
         st.write('Total of four points in Tcycle:',numOf4p)
         #########Tsensor
         tv = allfpa[:,-1]
+        st.write(tv)
         T_sesnitivity = (max(tv)-min(tv))/(temps["High1"]-temps["Low"]) # [V/C]
         T_offset = max(tv)/T_sesnitivity-temps["High1"] # [C]
         if cycle1: # generate Tsensor info
