@@ -84,7 +84,7 @@ if uploaded_file is not None:
         if('cont' in filename):
             cont = True
         delta = 10
-        st.write(type(dataTcyc[0,0])
+        st.write(type(dataTcyc[0,0]))
         st.write(dataTcyc[:3,:])       #V
         v = dataTcyc.astype(np.float)
         st.write(type(v[0,0]))
