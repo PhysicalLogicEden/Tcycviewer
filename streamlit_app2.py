@@ -111,7 +111,7 @@ if uploaded_file is not None:
             st.write(grad)
             #clustering grad into 2 clusters to find indForCalc 
             kmeans = KMeans(init = 'k-means++',n_clusters = 2)
-            indForCalc_y_kmeans = kmeans.fit_predict(abs(grad).reshape(-1,1)) 
+            indForCalc_y_kmeans = kmeans.fit_predict(abs(grad))   #.reshape(-1,1) 
             indForCalc = np.where(indForCalc_y_kmeans==1)[0] #first filter
             #clustering gradients indexes for each 4p 
             kmeans = KMeans(init = 'k-means++',n_clusters = numOf4p)
