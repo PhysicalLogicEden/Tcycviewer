@@ -33,7 +33,7 @@ if uploaded_file is not None:
 	# Check File Type
     if uploaded_file.type == "text/plain":
         df = str(uploaded_file.read(),"utf-8")
-        st.write(df[12,0])
+        st.write(df)
         devNameInd = uploaded_file.name.find('L1')
         deviceName  = uploaded_file.name[devNameInd:devNameInd+14]
         DevicePath = os.path.join(Analyzed_folder_path, deviceName)
