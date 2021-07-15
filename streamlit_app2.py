@@ -108,6 +108,7 @@ if uploaded_file is not None:
                 startEnd4p.append([midNeg4p-int(meanArea*2.5)-2*delta,midNeg4p+int(1.5*meanArea)+4*delta])
         else:
             grad =np.around(np.gradient(dataTcyc[:,0]), 8)
+            grad=grad[~np.isnan(grad).any(axis=1)]
             st.write(np.where(np.isnan(grad)))
             #clustering grad into 2 clusters to find indForCalc 
             kmeans = KMeans(init = 'k-means++',n_clusters = 2)
