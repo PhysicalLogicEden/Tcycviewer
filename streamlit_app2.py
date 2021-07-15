@@ -165,7 +165,9 @@ if uploaded_file is not None:
         alltempe = dataTcycFiltered[:,1] # [V]
         alltempec = alltempe/Tsensor["sensitivity"]-Tsensor["offset"] # [C]
         ########Poly calculations
+        st.write(tv)
         st.write(allfpa)
+        st.write(poly_rank)
         SFp = np.polyfit(tv,allfpa[:,0],poly_rank) # SF poly
         Bp=np.polyfit(tv,allfpa[:,1],poly_rank) # Bias poly
         MAp=np.polyfit(tv,allfpa[:,2],poly_rank) # MA poly
