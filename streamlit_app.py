@@ -8,9 +8,8 @@ Created on Wed Jul 14 09:07:57 2021
 
 import streamlit as st
 import pandas as pd
-from csv import reader   
 # import PL own function from path
-# from TcyclesAnalyzerA01 import TcyclesAnalyzer
+from TcyclesAnalyzerA02 import TcyclesAnalyzer2
 import os
 
 
@@ -34,11 +33,11 @@ if uploaded_file is not None:
     if uploaded_file.type == "text/plain":
         df = str(uploaded_file.read(),"utf-8")
         data =pd.DataFrame([x.split(' ') for x in df.split('\n')])
-        st.write(data[0][0])
         devNameInd = uploaded_file.name.find('L1')
         deviceName  = uploaded_file.name[devNameInd:devNameInd+14]
         DevicePath = os.path.join(Analyzed_folder_path, deviceName)
-        st.write(DevicePath)
+        plot_folder = TcyclesAnalyzer2(uploaded_file.name,data)
+        st.write(plot_folder)
                       # if not os.path.isdir(DevicePath):
                       #         os.mkdir(DevicePath) 
                       #         save_uploadedfile(uploaded_file,deviceName)
