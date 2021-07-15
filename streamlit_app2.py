@@ -263,4 +263,4 @@ if uploaded_file is not None:
         w=host.figure.get_figwidth()
         h=host.figure.get_figheight()
         host.figure.set_size_inches(1.5*w,h*1.5)
-        st.pyplot(host)
+        st.pyplot(figure)
