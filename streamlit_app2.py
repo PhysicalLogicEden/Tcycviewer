@@ -19,7 +19,7 @@ from sklearn.cluster import KMeans
 from sklearn.neighbors import LocalOutlierFactor
 # from tkinter import Tk     # from tkinter import Tk for Python 3.x
 # from tkinter.filedialog import askopenfilename
-import statistics as st
+import statistics as stat
 from scipy.signal import find_peaks
 import math
 import re
@@ -184,9 +184,9 @@ if uploaded_file is not None:
         MAcom = np.polyval(MAp,tv) # MA compensating values
         MAer = 1*(allfpa[:,2] - MAcom) # MA error [mrad]
             # Residual error, mean error, max error:
-        SFerr = dict(std_err = np.std(SFer),mean_err = np.mean(SFer),max_err = max(abs(SFer))) # [ppm]
-        Berr = dict(std_err = np.std(Ber),mean_err = np.mean(Ber),max_err = max(abs(Ber))) # [ug]
-        MAerr = dict(std_err = 1000*np.std(MAer),mean_err = 1000*np.mean(MAer),max_err = 1000*max(abs(MAer))) # [urad]
+        SFerr = dict(std_err = stat.stdev(SFer),mean_err = np.mean(SFer),max_err = max(abs(SFer))) # [ppm]
+        Berr = dict(std_err = stat.stdev(Ber),mean_err = np.mean(Ber),max_err = max(abs(Ber))) # [ug]
+        MAerr = dict(std_err = 1000*stat.stdev(MAer),mean_err = 1000*np.mean(MAer),max_err = 1000*max(abs(MAer))) # [urad]
         st.write('Bias residual error STD is:',round(Berr["std_err"]),'[ug]')
         if not(cycle1):
             st.write('Bias residual mean error is:',round(Berr["mean_err"]),'[ug]')
