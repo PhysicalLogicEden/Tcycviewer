@@ -141,11 +141,9 @@ if uploaded_file is not None:
             gradIndexes.append(list(range(int(Indexes[i][0]),int(Indexes[i][1])))+list(range(int(Indexes[i][2]),int(Indexes[i][3])))+list(range(int(Indexes[i][4]),int(Indexes[i][5])))+list(range(int(Indexes[i][6]),int(Indexes[i][7])))) 
             allfpa.append(allfpares)
         allfpa=np.array(allfpa) # [mbit/g]; [g]; [mrad]; [V]
-        st.write(allfpa)
         st.write('Total of four points in Tcycle:',numOf4p)
         #########Tsensor
         tv = allfpa[:,-1]
-        st.write(tv)
         T_sesnitivity = (max(tv)-min(tv))/(temps["High1"]-temps["Low"]) # [V/C]
         T_offset = max(tv)/T_sesnitivity-temps["High1"] # [C]
         if cycle1: # generate Tsensor info
@@ -167,9 +165,6 @@ if uploaded_file is not None:
         alltempe = dataTcycFiltered[:,1] # [V]
         alltempec = alltempe/Tsensor["sensitivity"]-Tsensor["offset"] # [C]
         ########Poly calculations
-        st.write(tv)
-        st.write(allfpa)
-        st.write(poly_rank)
         SFp = np.polyfit(tv,allfpa[:,0],poly_rank) # SF poly
         Bp=np.polyfit(tv,allfpa[:,1],poly_rank) # Bias poly
         MAp=np.polyfit(tv,allfpa[:,2],poly_rank) # MA poly
@@ -265,17 +260,7 @@ if uploaded_file is not None:
         host.grid(color='lightgrey',linewidth=0.5)
         host.yaxis.get_label().set_color(p1.get_color())
         par.yaxis.get_label().set_color(p2.get_color())
-        # leg = plt.legend(loc='best')
-        # leg.texts[0].set_color(p1.get_color())
-        # leg.texts[1].set_color(p2.get_color())
         w=host.figure.get_figwidth()
         h=host.figure.get_figheight()
         host.figure.set_size_inches(1.5*w,h*1.5)
         st.pyplot(host)
-        
-        
-        
-        
-        
-        
-        
