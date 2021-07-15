@@ -32,9 +32,9 @@ if uploaded_file is not None:
     st.write(file_details)
 	# Check File Type
     if uploaded_file.type == "text/plain":
-        df = str(uploaded_file.read(),"utf-8")
+        #df = str(uploaded_file.read(),"utf-8")
         # st.write(df)
-        df2 = pd.read_table(df,delimiter='\t')
+        df2 = pd.read_csv(uploaded_file)
         st.write(df2[0:1,:])
         devNameInd = uploaded_file.name.find('L1')
         deviceName  = uploaded_file.name[devNameInd:devNameInd+14]
