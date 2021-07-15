@@ -32,7 +32,6 @@ if uploaded_file is not None:
     st.write(file_details)
 	# Check File Type
     if uploaded_file.type == "text/plain":
-        file_details = {"Filename":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
         df = pd.read_csv(uploaded_file,delimiter='\t')
         st.write(df[1:6,:])
         devNameInd = uploaded_file.name.find('L1')
