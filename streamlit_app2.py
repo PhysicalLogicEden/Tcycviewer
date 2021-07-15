@@ -86,6 +86,7 @@ if uploaded_file is not None:
         delta = 10
         st.write(type(dataTcyc[0,0]))
         st.write(dataTcyc[:3,:])       #V
+        st.write(type(dataTcyc[:3,:]))
         v = dataTcyc.astype(float)
         st.write(type(v[0,0]))
         Neg4p = np.where(dataTcyc[:,0]<0.8*np.min(dataTcyc[:,0]))[0]#finds indexes of the -1g areas for all 4p
