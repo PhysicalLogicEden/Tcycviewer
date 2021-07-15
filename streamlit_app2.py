@@ -74,8 +74,9 @@ if uploaded_file is not None:
             label = 'cyc2_'
         #########preprocess data
         dataTcyc = dataTcyc.iloc[:,:2].values
-        b = np.asarray(dataTcyc, dtype=np.float64, order='C')
-        st.write(type(b))
+        #b = np.asarray(dataTcyc, dtype=np.float64, order='C')
+        #st.write(type(b))
+        x=np.asfarray(dataTcyc,float)
         dataTcyc = dataTcyc.astype(np.float)
         #st.write(type(dataTcyc))
         if 1: # trim beginning of Tcycle (clear junk data at turn ON)
