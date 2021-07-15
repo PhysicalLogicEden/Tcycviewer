@@ -52,7 +52,7 @@ if uploaded_file is not None:
     # Check File Type
     if uploaded_file.type == "text/plain":
         df = str(uploaded_file.read(),"utf-8")
-        dataTcyc =pd.DataFrame([float(x).split('\t') for x in df.split('\n')])
+        dataTcyc =pd.DataFrame([float(x.split('\t')) for x in df.split('\n')])
         #st.write(type(dataTcyc)) 
         filename = uploaded_file.name
         devNameInd = filename.find('L1')
