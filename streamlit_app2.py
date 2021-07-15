@@ -75,7 +75,8 @@ if uploaded_file is not None:
             label = 'cyc2_'
         #########preprocess data
         dataTcyc = dataTcyc.iloc[:,:2].values
-        st.write(type(dataTcyc))                                                    ##
+        st.write(type(dataTcyc)) 
+        st.write(dataTcyc[:2,1]) ##
         if 1: # trim beginning of Tcycle (clear junk data at turn ON)
             tempeVdiff = np.gradient(dataTcyc[:1000,1])
             tempeVtrim=np.where(abs(tempeVdiff)>0.004)
