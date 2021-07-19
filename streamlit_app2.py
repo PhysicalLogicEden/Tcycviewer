@@ -128,10 +128,7 @@ if uploaded_file is not None:
                 indexesOf4Ps.append(temp) 
                 startEnd4p.append([indexesOf4Ps[i][0]-2*delta,indexesOf4Ps[i][-1]+2*delta])
         startEnd4p.sort()
-        st.write(len(dataTcyc))
-        st.write(startEnd4p[-1][1])
         startEnd4p[-1][1] = min(startEnd4p[-1][1],len(dataTcyc))
-        st.write(startEnd4p[-1][1])
         #########creates allfpa and indexes
         gradIndexes = []
         Indexes = []
@@ -143,6 +140,7 @@ if uploaded_file is not None:
             #indexes of data to calculate 4p measurements - SEND TO IF 0
             gradIndexes.append(list(range(int(Indexes[i][0]),int(Indexes[i][1])))+list(range(int(Indexes[i][2]),int(Indexes[i][3])))+list(range(int(Indexes[i][4]),int(Indexes[i][5])))+list(range(int(Indexes[i][6]),int(Indexes[i][7])))) 
             allfpa.append(allfpares)
+            st.write(allfpares)
         allfpa=np.array(allfpa) # [mbit/g]; [g]; [mrad]; [V]
         st.write('Total of four points in Tcycle:',numOf4p)
         st.write(allfpa)
