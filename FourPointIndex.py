@@ -25,7 +25,7 @@ def FourPointCalc(data, start_index,orientation , cont):
     from scipy.signal import find_peaks
     from scipy.signal import peak_widths
     from sklearn.neighbors import LocalOutlierFactor
-    import statistics
+    import statistics as stat
     
     dataFpoint = data[:,0]
     
@@ -58,10 +58,10 @@ def FourPointCalc(data, start_index,orientation , cont):
         FPstartEnd.append([temp[peakWidthMax],temp[-peakWidthMax]])
     FPstartEnd.sort()
     
-    A1 = statistics.mean(dataFpoint[FPstartEnd[0][0]:FPstartEnd[0][1]])
-    A2 = statistics.mean(dataFpoint[FPstartEnd[1][0]:FPstartEnd[1][1]])
-    A3 = statistics.mean(dataFpoint[FPstartEnd[2][0]:FPstartEnd[2][1]])
-    A4 = statistics.mean(dataFpoint[FPstartEnd[3][0]:FPstartEnd[3][1]])
+    A1 = stat.mean(dataFpoint[FPstartEnd[0][0]:FPstartEnd[0][1]])
+    A2 = stat.mean(dataFpoint[FPstartEnd[1][0]:FPstartEnd[1][1]])
+    A3 = stat.mean(dataFpoint[FPstartEnd[2][0]:FPstartEnd[2][1]])
+    A4 = stat.mean(dataFpoint[FPstartEnd[3][0]:FPstartEnd[3][1]])
     
     # calculate 4point params: SF in [mbit/g]; Bias in [g]; MA in [mrad]
     if(cont): #Tcyc cont
@@ -83,7 +83,7 @@ def FourPointCalc(data, start_index,orientation , cont):
                 b=1000*(A3+A4)/2/SF
                 ma=1000000*(A4-A3)/2/SF
     
-    TempSense = statistics.mean(data[:,1]) # [V[]]            
+    TempSense = stat.mean(data[:,1]) # [V[]]            
     allfpa = [SF,b,ma,TempSense] # [mbit/g]; [g]; [mrad]; [V]
     FPstartEnd = list(np.asarray(FPstartEnd)+start_index) 
     
