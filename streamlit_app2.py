@@ -140,10 +140,10 @@ if uploaded_file is not None:
             #indexes of data to calculate 4p measurements - SEND TO IF 0
             gradIndexes.append(list(range(int(Indexes[i][0]),int(Indexes[i][1])))+list(range(int(Indexes[i][2]),int(Indexes[i][3])))+list(range(int(Indexes[i][4]),int(Indexes[i][5])))+list(range(int(Indexes[i][6]),int(Indexes[i][7])))) 
             allfpa.append(allfpares)
-            st.write(allfpares)
         allfpa=np.array(allfpa) # [mbit/g]; [g]; [mrad]; [V]
         st.write('Total of four points in Tcycle:',numOf4p)
         st.write(allfpa)
+        st.write(orientation)
         #########Tsensor
         tv = allfpa[:,-1]
         T_sesnitivity = (max(tv)-min(tv))/(temps["High1"]-temps["Low"]) # [V/C]
