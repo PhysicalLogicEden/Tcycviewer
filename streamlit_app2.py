@@ -142,8 +142,7 @@ if uploaded_file is not None:
             allfpa.append(allfpares)
         allfpa=np.array(allfpa) # [mbit/g]; [g]; [mrad]; [V]
         st.write('Total of four points in Tcycle:',numOf4p)
-        st.write(allfpa)
-        st.write(dataTcyc[startEnd4p[i][0]:startEnd4p[i][1],1])
+        st.write('Acc. Orientation:',orientation)
         #########Tsensor
         tv = allfpa[:,-1]
         T_sesnitivity = (max(tv)-min(tv))/(temps["High1"]-temps["Low"]) # [V/C]
