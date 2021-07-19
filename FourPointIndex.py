@@ -82,8 +82,8 @@ def FourPointCalc(data, start_index,orientation , cont):
                 SF=1000*(A1-A2)/2
                 b=1000*(A3+A4)/2/SF
                 ma=1000000*(A4-A3)/2/SF
-    
-    TempSense = stat.mean(data[:,1]) # [V[]]            
+    cleanedList = [x for x in data[:,1] if x != 'nan']
+    TempSense = stat.mean(cleanedList) # [V[]]            
     allfpa = [SF,b,ma,TempSense] # [mbit/g]; [g]; [mrad]; [V]
     FPstartEnd = list(np.asarray(FPstartEnd)+start_index) 
     
