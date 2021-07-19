@@ -128,8 +128,10 @@ if uploaded_file is not None:
                 indexesOf4Ps.append(temp) 
                 startEnd4p.append([indexesOf4Ps[i][0]-2*delta,indexesOf4Ps[i][-1]+2*delta])
         startEnd4p.sort()
-        startEnd4p[-1][1] = min(startEnd4p[-1][1],len(dataTcyc))
         st.write(len(dataTcyc))
+        st.write(startEnd4p[-1][1])
+        startEnd4p[-1][1] = min(startEnd4p[-1][1],len(dataTcyc))
+        st.write(startEnd4p[-1][1])
         #########creates allfpa and indexes
         gradIndexes = []
         Indexes = []
