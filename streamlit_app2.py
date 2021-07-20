@@ -245,7 +245,6 @@ if uploaded_file is not None:
         alldatag_s = smooth(alldatag,100) # [mg]
         alltempec_s = smooth(alltempec,100) # [C]
         datacompds = smooth(datacomp,100*decimation_factor) # [mg] compensated
-        t = time.time()
         timeline_all = np.arange(len(dataTcyc[:,0]))/f_sample/60/60 #Hours
         timeline_filt = np.arange(len(alldatag))/f_sample/60/60 #Hours
         plt.rcParams['axes.formatter.useoffset'] = False
@@ -266,21 +265,21 @@ if uploaded_file is not None:
         host.figure.set_size_inches(1.5*w,h*1.5)
         st.pyplot(host.figure)
            # All Temp. Cycle data filtered w/o 4p
-        host = host_subplot(111)
-        par = host.twinx()
-        p1, = host.plot(timeline_filt,alldatag_s,'royalblue',linewidth=0.5,label='Acceleration')
-        p2, = par.plot(timeline_filt,alltempec_s,'coral',linewidth=0.5,label='Temperature')
-        host.set_xlabel('Time [Hours]')
-        host.set_ylabel('Acceleration [mg]')
-        par.set_ylabel('Temperature [$^\circ$C]')
+        host2 = host_subplot(111)
+        par2 = host.twinx()
+        p3, = host.plot(timeline_filt,alldatag_s,'royalblue',linewidth=0.5,label='Acceleration')
+        p4, = par.plot(timeline_filt,alltempec_s,'coral',linewidth=0.5,label='Temperature')
+        host2.set_xlabel('Time [Hours]')
+        host2.set_ylabel('Acceleration [mg]')
+        par2.set_ylabel('Temperature [$^\circ$C]')
         plt.title('Temp. Cycle All Data w/o 4p - %s' %deviceName)
-        host.grid(color='lightgrey',linewidth=0.5)
-        host.yaxis.get_label().set_color(p1.get_color())
-        par.yaxis.get_label().set_color(p2.get_color())
-        w=host.figure.get_figwidth()
-        h=host.figure.get_figheight()
-        host.figure.set_size_inches(1.5*w,h*1.5)
-        st.pyplot(host.figure)
+        host2.grid(color='lightgrey',linewidth=0.5)
+        host2.yaxis.get_label().set_color(p1.get_color())
+        par2.yaxis.get_label().set_color(p2.get_color())
+        w=host2.figure.get_figwidth()
+        h=host2.figure.get_figheight()
+        host2.figure.set_size_inches(1.5*w,h*1.5)
+        st.pyplot(host2.figure)
             # All Temp. Cycle Acc Vs Temp
         fig = plt.figure()
         plt.plot(alltempec_s,alldatag_s,'royalblue',linewidth=0.4)
