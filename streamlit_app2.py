@@ -266,9 +266,9 @@ if uploaded_file is not None:
         st.pyplot(host.figure)
            # All Temp. Cycle data filtered w/o 4p
         host2 = host_subplot(111)
-        par2 = host.twinx()
-        p3, = host.plot(timeline_filt,alldatag_s,'royalblue',linewidth=0.5,label='Acceleration')
-        p4, = par.plot(timeline_filt,alltempec_s,'coral',linewidth=0.5,label='Temperature')
+        par2 = host2.twinx()
+        p3, = host2.plot(timeline_filt,alldatag_s,'royalblue',linewidth=0.5,label='Acceleration')
+        p4, = par2.plot(timeline_filt,alltempec_s,'coral',linewidth=0.5,label='Temperature')
         host2.set_xlabel('Time [Hours]')
         host2.set_ylabel('Acceleration [mg]')
         par2.set_ylabel('Temperature [$^\circ$C]')
